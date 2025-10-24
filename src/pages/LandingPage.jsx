@@ -1,23 +1,24 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import './LandingPage.css';
 
-export default function LandingPage() {
+function LandingPage() {
   return (
-    <div
-      className="flex flex-col items-center justify-center text-center h-[90vh] bg-cover bg-center"
-      style={{ backgroundImage: "url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6')" }}
-    >
-      <h1 className="text-5xl font-bold text-white drop-shadow-lg mb-4">
-        Welcome to GreenLeaf 🌿
-      </h1>
-      <p className="text-lg text-white max-w-md mb-6 drop-shadow">
-        We provide a wide range of beautiful houseplants to bring nature closer to your home.
-      </p>
-      <Link
-        to="/products"
-        className="bg-white text-green-700 px-6 py-3 rounded-lg font-semibold hover:bg-green-100 transition"
-      >
-        Get Started
-      </Link>
+    <div className="landing-page">
+      <div className="landing-overlay"></div>
+      <div className="landing-content">
+        <h1 className="company-name">Paradise Nursery</h1>
+        <p className="company-description">
+          Welcome to Paradise Nursery, where green meets serenity. 
+          We are passionate about bringing nature into your home with our 
+          carefully curated collection of beautiful houseplants. 
+          Transform your living space into a green oasis today!
+        </p>
+        <Link to="/products">
+          <button className="btn-get-started">Get Started</button>
+        </Link>
+      </div>
     </div>
   );
 }
+
+export default LandingPage;

@@ -1,46 +1,44 @@
-const plants = [
+export const plants = [
   {
     id: 1,
-    name: "Snake Plant",
-    price: 25,
-    category: "Indoor",
-    image: "https://images.unsplash.com/photo-1601027847350-28c93f8bb4b2?w=400",
+    name: 'Aloe Vera',
+    price: 15,
+    category: 'Succulents',
+    thumbnail: 'https://images.unsplash.com/photo-1509423350716-97f9360b4e09?w=300&h=300&fit=crop'
   },
   {
     id: 2,
-    name: "Aloe Vera",
-    price: 18,
-    category: "Succulent",
-    image: "https://images.unsplash.com/photo-1598908314848-7a355b6a1e59?w=400",
+    name: 'Jade Plant',
+    price: 20,
+    category: 'Succulents',
+    thumbnail: 'https://images.unsplash.com/photo-1459156212016-c812468e2115?w=300&h=300&fit=crop'
   },
   {
     id: 3,
-    name: "Peace Lily",
-    price: 30,
-    category: "Flowering",
-    image: "https://images.unsplash.com/photo-1591278695778-c4b3bcbdd2a1?w=400",
+    name: 'Boston Fern',
+    price: 25,
+    category: 'Ferns',
+    thumbnail: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=300&h=300&fit=crop'
   },
   {
     id: 4,
-    name: "Cactus",
-    price: 15,
-    category: "Succulent",
-    image: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400",
+    name: 'Maidenhair Fern',
+    price: 18,
+    category: 'Ferns',
+    thumbnail: 'https://images.unsplash.com/photo-1586339277861-b0b895343ba5?w=300&h=300&fit=crop'
   },
   {
     id: 5,
-    name: "Fern",
+    name: 'Snake Plant',
     price: 22,
-    category: "Indoor",
-    image: "https://images.unsplash.com/photo-1600334129128-8c5f0e7c9e82?w=400",
+    category: 'Indoor Plants',
+    thumbnail: 'https://images.unsplash.com/photo-1593482892290-f54927ae1bb6?w=300&h=300&fit=crop'
   },
   {
     id: 6,
-    name: "Orchid",
-    price: 35,
-    category: "Flowering",
-    image: "https://images.unsplash.com/photo-1555685812-4b943f1cb0eb?w=400",
+    name: 'Monstera Deliciosa',
+    price: 30,
+    category: 'Indoor Plants',
+    thumbnail: 'https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=300&h=300&fit=crop'
   },
 ];
-
-export default plants;

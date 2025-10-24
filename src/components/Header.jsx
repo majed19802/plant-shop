@@ -1,27 +1,29 @@
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
+import { Link, useLocation } from 'react-router-dom';
+import './Header.css';
 
-export default function Header() {
-  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+function Header() {
+  const totalQuantity = useSelector(state => state.cart.totalQuantity);
+  const location = useLocation();
+
+  if (location.pathname === '/') return null;
 
   return (
-    <header className="bg-green-800 text-white px-6 py-3 flex justify-between items-center">
-      <Link to="/" className="text-2xl font-bold">
-        🌿 GreenLeaf
-      </Link>
-      <nav className="flex items-center gap-6">
-        <Link to="/products" className="hover:underline">
-          Products
-        </Link>
-        <Link to="/cart" className="relative">
-          🛒
-          {totalQuantity > 0 && (
-            <span className="absolute -top-2 -right-3 bg-red-500 text-xs rounded-full px-2 py-0.5">
-              {totalQuantity}
-            </span>
-          )}
-        </Link>
-      </nav>
+    <header className="header">
+      <div className="header-content">
+        <h2 className="logo">Paradise Nursery</h2>
+        <nav className="nav">
+          <Link to="/products" className="nav-link">Products</Link>
+          <Link to="/cart" className="cart-link">
+            <span className="cart-icon">🛒</span>
+            {totalQuantity > 0 && (
+              <span className="cart-badge">{totalQuantity}</span>
+            )}
+          </Link>
+        </nav>
+      </div>
     </header>
   );
 }
+
+export default Header;

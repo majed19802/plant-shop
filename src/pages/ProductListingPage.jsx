@@ -1,25 +1,49 @@
-import plants from "../data/plants";
-import ProductCard from "../components/ProductCard";
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart } from '../redux/cartSlice';
+import { plants } from '../data/plants';
+import Header from '../components/Header';
+import PlantCard from '../components/PlantCard';
+import './ProductListingPage.css';
 
-export default function ProductListingPage() {
-  const categories = [...new Set(plants.map((p) => p.category))];
+function ProductListingPage() {
+  const dispatch = useDispatch();
+  const cartItems = useSelector(state => state.cart.items);
+  
+  const categories = [...new Set(plants.map(plant => plant.category))];
+
+  const isInCart = (plantId) => {
+    return cartItems.some(item => item.id === plantId);
+  };
+
+  const handleAddToCart = (plant) => {
+    dispatch(addToCart(plant));
+  };
 
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold mb-6 text-green-800 text-center">Our Plants</h1>
-
-      {categories.map((cat) => (
-        <div key={cat} className="mb-10">
-          <h2 className="text-2xl font-semibold text-green-700 mb-4">{cat}</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {plants
-              .filter((p) => p.category === cat)
-              .map((plant) => (
-                <ProductCard key={plant.id} plant={plant} />
-              ))}
+    <>
+      <Header />
+      <div className="product-listing">
+        <h1 className="page-title">Our Plants Collection</h1>
+        {categories.map(category => (
+          <div key={category} className="category-section">
+            <h2 className="category-title">{category}</h2>
+            <div className="plants-grid">
+              {plants
+                .filter(plant => plant.category === category)
+                .map(plant => (
+                  <PlantCard
+                    key={plant.id}
+                    plant={plant}
+                    isInCart={isInCart(plant.id)}
+                    onAddToCart={() => handleAddToCart(plant)}
+                  />
+                ))}
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    </>
   );
 }
+
+export default ProductListingPage;
